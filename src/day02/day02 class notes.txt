@@ -1,0 +1,244 @@
+03/29/2022
+Java Bootcamp Day02
+
+Topics:
+        18. Method Overriding
+		19. Final keyword
+		20. OOP Abstraction
+		21. Abstract Class vs Interface
+		22. OOP Polymorphism
+		23. Reference Type Castings: Upcasting vs DownCasting
+		24. Exceptions: checked & unchecked
+		25. Exception Handlings
+		26. final vs finally vs finalize
+		27. garbage collection & garbage collector
+		28. Collections: List, Set, Queue
+		29. Iteable & Iterator
+		30. Maps
+
+
+18. Method Overriding (runtime polymorphim): giving different implementations to the method
+
+                        must happen in sub class
+
+                        Access modifier must be same or more visible
+
+                        return type, method name, parameters need to be same
+
+                        We can not override:
+                            static, final, private
+
+
+19. Final keyword: unchangable
+        
+        variables: can not be reassigned
+
+        methods: can not be overriden
+
+        classes: can not be inherited
+
+
+
+20. OOP Abstraction: hiding the implementation details
+                    putting the focus on essentials without worrying about the details
+
+                    abstract method: method without the body
+                                     meant to be overridden ( can not be private, static, final)
+
+
+                 2 ways:
+                        1. Abstract class: meant to be parent (can not be final)
+                                          can not create object
+
+                                    A class can only extends one abstract class
+
+                        2. Interface: blue print of the class
+                                     used for providing additional methods that the class needs
+                                     meant to be implemented ( can not be final)
+                                     can not create object
+
+                                     A class can implement multiple classes
+
+                                     variables: public static final by default
+
+                                     methods: abstract method, static methods, default method
+
+
+                Volume:
+                    volume();
+
+                Shape:
+                    area();
+
+                Circle extends Shape
+
+                Square extends Shape
+
+                Rectangle extends Shape
+
+                Cube extends Shape implements Volume
+
+                Cylinder extends Shape implements Volume
+
+                Sphere extends Shape implements Volume
+
+
+                In my framework:
+                    Abstract class: BasePage, TestBase
+
+                    Interface: 
+                            Map
+                            List & Set
+                            WebDriver
+                            JavaScriptExecuter
+                            TakeScreenShot
+                            WebElement
+                            ...
+
+
+22. OOP Polymorphism: ability of the object to take on many forms
+                     There MUST be inheritance
+
+                     parent class/interface being referenced to child objects
+
+                     reference type decides whats accessible
+
+                     WebDriver driver = new ChromeDriver();
+
+
+                     in my frameowrk:
+                        Driver:
+                            WebDriver driver;
+
+                            WebDriver getDriver()
+
+
+
+23. Reference type castings:  There MUST be inheritance
+            
+            upcasting: casting smaller type to larger ( done implicitly)
+
+                       //  WebDriver driver = (WebDriver) new ChromeDriver();
+
+
+            down casting: casting larger type to smaller (done explicitly)
+
+
+
+24. Exceptions: checked & unchecked
+        
+        checked: occurs during compile time
+
+        unchecked: occurs during runtime
+
+25. Exception handlings:
+            
+            1. try & catch: For both checked & unchecked exception
+
+                    try{
+                        exception code
+                    }catch(ExceptionClass e){
+                        e.printStackTrace();
+                    }finally{
+
+                    }
+
+
+            2. throws: used within method signature.
+                       for checked exceptions ONLY
+
+                        caller is responsible for handling the exception
+
+
+26. final vs finally vs finalize:
+        
+        final: keyword. can be used for variables, methods, and class
+
+        finally: block. can be used with try & catch
+
+        finalize: method. used for garbage collector to collect the unreferenced objects
+
+
+
+27. garbage collection: where all the unreferenced objects goes to
+    
+            unreferenced objects:
+               new object or null key is being assigned to the reference name
+
+
+
+28. Collection: size is dynamic
+                ONLY supports non-primitives
+                Ready methods
+
+
+        List(I): Accepts duplicates, Has index
+
+                ArrayList(C): searching/retrieving the element is faster ( get() )
+
+                LinkedList(C): adding/removing the element is faster (add(), addAll(), remove(), removeAll(), retainAll(), removeIf())
+
+                Vector(C): Synchronized ==> thread-safe
+
+                Stack(C): Synchronized ==> thread-safe. LIFO
+
+
+        Set(I): Does not accept duplicates, Does not have index
+
+                HashSet(C): maintains the random order
+
+                LinkedHashSet(C): maintains the insertion order
+
+                TreeSet(C): maintains sorted (ascending) order
+
+
+        Queue(I): Accepts duplicates, Does not have index, FIFO(first in first out)
+
+
+        In my framework:
+                List:  List of WebElements (findElements())
+                       List of String
+                       List of Map
+
+                Set: Switch between Multiple tabs (getWindowHandles())
+
+
+29 Iterable & Iterator: used for removing objects from collection during the iterations
+
+
+30. Map(I):  key & value (pairs). key can not be duplicated
+             size is dynamic
+             ONLY supports non-primitives
+
+
+         HashMap(C): maintains the random order, accepts null key & value
+
+         LinkedHashMap(C): maintains the insertion order, accepts null key & value
+
+         HashTable(C): maintains the random order, does not accept null. Synchronized
+
+         TreeMap(C): maintains sorted (ascending) order , key can not be null, value can be null
+
+         in my framework:
+                properties file
+                Jason object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

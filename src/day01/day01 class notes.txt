@@ -1,0 +1,296 @@
+03/26/2022
+Java Bootcamp Day01
+
+Topics:
+		1. Primitives: int, double, char, boolean
+		2. Primitive Type Castings: Implicit vs Explicit
+		3. Wrapper class
+		4. String
+		5. String vs StringBuilder vs StringBuffer
+		6. Loops: for & while
+		7. Array
+		8. for each loop
+		9. Custom Methods
+		10. Method Overloading
+		11. Constructor
+		12. Class & Objects
+		13. Static vs Instance
+		14. Import Statements
+		15. Access Modifiers
+		16. OOP Encapsulations
+		17. OOP Inheritance
+				IS A vs Has A
+		
+
+1. primitives:	int, double, char, boolean
+		byte, short, int, long, float, double
+		char, boolean
+
+
+2. Primitive type castings
+		
+		1. implicit casting: casting smaller primitive type to larger (implicitly done)
+
+		2. explicit casting: casting larger primitive type to smaller (explicitly done)
+
+
+3. Wrapper classes: the objects that represents the primitives
+
+
+4. String: immutable version char sequence
+		
+		"Java "
+		 01234
+
+		 Methods: charAt, length, trim, lowercase & uppercase, replace, substring, equals, contains, split, tochararray
+
+
+5. StringBuilder vs StringBuffer: mutable char sequence
+
+		StringBuilder: not Synchronized
+
+		StringBuffer: Synchronized
+
+
+
+6. Loops: repeated action
+
+	for loop:
+		for(initialization; Condition; Iterator ){
+			statements
+		}
+
+
+	while loop:
+
+		while(Condition){
+			statements
+		}
+
+
+7. Array: supports both primitives & non-primitives
+		  size is fixed
+		  can be multi-dimensional: n dimensional array contains (n-1) dimensional arrays
+		  has index
+
+
+8. For Each Loop: There must be a data structure 
+				 Iteration order is fixed
+
+
+			for(DataType var  : Data Structure ){
+
+			}
+
+
+9. Custom method: Function
+				 grouping a series of code fragments
+
+				 improves the reusability of the codes
+
+
+			 declare: 
+			 	 Access-Modifier  Specifier   ReturnType  methodName(Parameter){
+
+			 	 } 
+
+			 	 Access Modifier: public, protected, default, private
+			 	 Specifier: static, final, abstract, synchronized
+			 	 Return Type: void, DataType
+			 	 Parameter: DataType
+			 	 methodName: any name
+
+
+
+10. Method overloading: multiple methods sharing the same method name
+						parameters must be different
+
+						happens in same class
+						return type, access modifiers can be same or different
+
+
+11. Constructor: special method, every class MUST have it
+				 used for creating objects from the class
+				 execution depends on the object
+
+
+			 declare:
+			 		Access_Modifier  ClassName(parameter){
+
+			 		}
+
+
+		Creating Object:
+				new Constructor;
+
+
+		in my framework:
+				BasePage:
+					public BasePage(){
+						Pagefactory.initElements(driver, this)
+					}
+
+
+				@FindBy
+
+
+
+12. Class & Objects: 
+			
+			class: class is a template of objects. where the objects came from
+
+			object: Object is an instance of the class
+					each object has its own memory
+
+
+13. Static vs Instance: one copy vs Multiple copies
+
+		static: belong to the class
+				There is only ONE copy of static shared by all the objects
+
+		instance: belongs to the object ONLY
+				  There are multiple copies of instance for the objects
+				  Each object has it's own copy
+
+
+14. Import Statements:
+
+		regular import:
+				import packageName.className;
+				import packageName.*;
+
+		static import: used for importing static varaibles & methods ONLY
+				import static packageName.className.staticMember;
+				import static packageName.className.*;
+
+
+15. Access Modifiers: 
+		
+		public > protected > default > private
+
+		public: always accessible at everywhere
+		protected: always accessible within same package, also accessible to sub classes outside package
+		default: accessible within same package ONLY
+		private: accessible within same class ONLY
+
+
+16. OOP: Object Oriented Programming
+		
+		code reusability
+		centralized structure
+		prevents the duplication
+		easy to maintain
+		less memory usage
+		clean
+
+
+	Encapsulation: hiding the data by giving private AM
+				   use public getter/setter to read/write the data
+
+				   getter: read only
+				   setter: write only
+
+           in my framework:
+                POJO class
+
+
+17. Inheritance: building IS A relations between classes (parent/child)
+
+			class A  extends  class B
+				 sub 			  super
+
+
+		 sub class: can inherit all the visible variables & methods from super class
+
+		 super class: can not inherit anything from sub class
+		 			  can ONLY contains common features between all sub classes
+
+		 A class can extends one class ONLY
+
+		 A class can be extended by multiple classes
+
+
+   In my framework:
+
+		 TestBase:
+
+		 		driver
+		 		action
+
+		 		@BeforeMethod{
+		 			open the browser
+		 			maximize the browser
+		 			implicitwait
+		 			...
+		 		}
+
+
+		 		@AfterMethod {
+		 			quit
+		 			report
+		 			..
+		 		}
+
+
+ 		TestClass1 extends TestBase
+
+ 		TestClass2 extends TestBase
+
+ 		TestClass3 extends TestBase
+
+ 		TestClass4 extends TestBase
+
+
+	In my framework:
+			BasePage:
+					public BasePage(){
+						Pagefactory.initElements(driver, this)
+					}
+
+
+			LogInPage extends BasePage
+
+			PurchasePage extends BasePage
+
+			...
+
+
+
+	Is A relation vs Has A relation:
+
+		class Animal{
+
+		}
+
+		class Dog extends Animal{  // Dog Is A animal
+
+		}
+ 
+		class Zoo{   // Zoo Has A Dog
+			Dog
+		}
+
+
+		class Test{ // Test has A driver
+			driver
+		}
+
+
+
+	   class Car{
+
+	   }
+
+	   class BMW extends Car{  // BMW IS A car
+	   		Engine   // BMW Has A Engine
+	   }
+
+	   class Engine{
+
+	   }
+
+
+
+
+
+
